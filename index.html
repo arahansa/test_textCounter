@@ -1,0 +1,60 @@
+<html>
+<head>
+	<title>test Text Counter</title>
+	<meta charset="utf-8"/>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+
+
+<h3> 라이브러리 바로 받아오자마자 써봄.. </h3>
+
+문제가.. 다른 요소들까지 숫자가 같이 변하게 되었습니다. <br><Br>
+
+글씨 1 : <input id="text1" type="text"> <br>
+
+글씨 2 : <input id="text2" type="text"> <br>
+
+텍스트1 : <textarea id="textarea1"></textarea> <br>
+
+텍스트2 : <textarea id="textarea2"></textarea> <br>
+
+
+<h4>
+<h3>했던 일 </h3>
+<a href="https://github.com/ractoon/jQuery-Text-Counter" target="_blank">https://github.com/ractoon/jQuery-Text-Counter</a> 에서 얻어와서 임포트. <br>
+바로 가져오면 문제가 좀.. ㅜ<br>
+
+맥시멈 숫자 제한은  { max: 숫자 }
+
+
+<pre><code>
+$("input").textcounter();
+
+$("#text2").textcounter({max:10});
+
+</code></pre>
+
+
+
+
+<hr>
+<h4>목차</h4>
+<div>첫번째. 에러나는 페이지 <a href="index.html">index.html</a></div>
+<div>두번째. 에러 한개만 수정한 페이지 <a href="index2.html">index2.html</a></div>
+<div>세번째. 숫자 나타내는 표시 조금 수정 <a href="index3.html">index3.html</a></div>
+<div>네번째. input 다음이 아닌 prev에서 특정 마커 다음에 상태 보여주기 <a href="index4.html">index4.html</a></div>
+
+
+<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+<script src="textcounter.js"></script>
+
+<script>
+	$("input").textcounter();
+	$("textarea").textcounter();
+
+	//$("#textarea1").textcounter();
+	//$("#textarea2").textcounter();
+</script>
+</body>
+</html>

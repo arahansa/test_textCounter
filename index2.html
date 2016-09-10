@@ -1,0 +1,58 @@
+<html>
+<head>
+	<title>test Text Counter2 </title>
+	<meta charset="utf-8"/>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+
+<h3> 조금 커스터마이징한 카운터 ( 다음 요소가 수정 안되게 ) </h3>
+
+글씨 1 : <input id="text1" type="text"> <br>
+
+글씨 2 : <input id="text2" type="text"> <br>
+
+텍스트1 : <textarea id="textarea1"></textarea> <br>
+
+텍스트2 : <textarea id="textarea2"></textarea> <br>
+
+
+<h4>
+<h3>했던 일 </h3>
+
+자바스크립트 수정 : nextAll로 되어있길래 next로만 바꿔줌.
+
+<pre><code>
+base.setCount = function(count) {
+  var $this = base.$el,
+      $countEl = $this.next('.' + base.options.countContainerClass);
+
+  $countEl.children('.' + base.options.textCountClass).text(count);
+};
+</code></pre>
+
+<hr>
+<h4>목차</h4>
+<div>첫번째. 에러나는 페이지 <a href="index.html">index.html</a></div>
+<div>두번째. 에러 한개만 수정한 페이지 <a href="index2.html">index2.html</a></div>
+<div>세번째. 숫자 나타내는 표시 조금 수정 <a href="index3.html">index3.html</a></div>
+<div>네번째. input 다음이 아닌 prev에서 특정 마커 다음에 상태 보여주기 <a href="index4.html">index4.html</a></div>
+
+
+
+
+
+<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+<script src="textcounter2.js"></script>
+
+<script>
+	$("input").textcounter();
+	$("textarea").textcounter();
+	//$("#text1").textcounter();
+	//$("#text2").textcounter();
+
+	//$("#textarea1").textcounter();
+	//$("#textarea2").textcounter();
+</script>
+</body>
+</html>

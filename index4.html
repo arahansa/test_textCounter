@@ -1,0 +1,90 @@
+<html>
+<head>
+	<title>test Text Counter4 </title>
+	<meta charset="utf-8"/>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body class="id4">
+
+<h3> 조금 커스터마이징한 카운터 ( 현재숫자/맥시멈숫자 로 표현되게  ) </h3>
+맥시점 사이즈 200 에서 20 정도로 줄였습니다. 
+<br>
+
+<p>
+	<h6 class="text-count-marker">글씨 1 :</h6>
+</p>
+
+<input id="text1" type="text"> <br>
+
+
+
+<h6 class="text-count-marker">글씨 2 : </h6> <br>
+<input id="text2" type="text"> <br>
+
+<p>
+<h6>텍스트1 : </h6>
+</p>
+<textarea id="textarea1"></textarea> <br>
+
+<h6>텍스트2 : </h6><br>
+<textarea id="textarea2"></textarea> <br>
+
+
+<h4>
+<h3>했던 일 </h3>
+
+자바스크립트 수정 : options 에 marker 옵션 추가 
+
+<pre><code>
+'hasPrevMarker'             : true,
+'markerElementName'         : ".text-count-marker",
+
+</pre></code>
+
+
+<br>
+해당 옵션이 있을 때 init이나 setCount 에서 이전 요소 찾아서 변경될 수 있도록 수정.. 
+
+<br>
+<pre><code>
+// init 에서 base.$el.after를 다음과 같이 수정 
+// 참고 URL : http://stackoverflow.com/questions/2310270/jquery-find-closest-previous-sibling-with-class
+base.getMarkerElement().after(tcWrapper);
+
+// setCount 함수도 비슷하게 수정함...
+
+//  함수 추가
+base.getMarkerElement = function(){
+  if(base.options.hasPrevMarker){
+    var prevElem = base.$el.prev(base.options.markerElementName);
+    if(prevElem.length == 0){
+      prevElem = base.$el.prevUntil(base.options.markerElementName).last().prev();
+    }
+    return $(prevElem);
+  }else{
+    base.$el;
+  }
+}; 
+</code></pre>
+
+
+
+
+<hr>
+<h4>목차</h4>
+<div>첫번째. 에러나는 페이지 <a href="index.html">index.html</a></div>
+<div>두번째. 에러 한개만 수정한 페이지 <a href="index2.html">index2.html</a></div>
+<div>세번째. 숫자 나타내는 표시 조금 수정 <a href="index3.html">index3.html</a></div>
+<div>네번째. input 다음이 아닌 prev에서 특정 마커 다음에 상태 보여주기 <a href="index4.html">index4.html</a></div>
+
+<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+<script src="textcounter4.js"></script>
+
+<script>
+	$("input").textcounter();
+
+	$("textarea").textcounter({markerElementName:'h6', max:10});
+	//$("#text2").textcounter({max:10});
+</script>
+</body>
+</html>
